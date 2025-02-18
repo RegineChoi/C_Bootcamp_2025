@@ -3,29 +3,158 @@
 # 0 "<command-line>"
 # 1 "hello.c"
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 1 3
-# 9 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
+
+# 1 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+
+
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h" 1 3
-# 10 "C:/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h" 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the Wine project.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+
+
+
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/corecrt.h" 1 3
-# 10 "C:/mingw64/x86_64-w64-mingw32/include/corecrt.h" 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+
+
+
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 1 3
-# 10 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+
+
+
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 1 3
-# 98 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+# 18 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
+/* This macro holds an monotonic increasing value, which indicates
+   a specific fix/patch is present on trunk.  This value isn't related to
+   minor/major version-macros.  It is increased on demand, if a big
+   fix was applied to trunk.  This macro gets just increased on trunk.  For
+   other branches its value won't be modified.  */
+# 35 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
+/* mingw.org's version macros: these make gcc to define
+   MINGW32_SUPPORTS_MT_EH and to use the _CRT_MT global
+   and the __mingwthr_key_dtor() function from the MinGW
+   CRT in its private gthr-win32.h header. */
+
+
+
+/* Set VC specific compiler target macros.  */
+# 92 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
+   /* MS does not prefix symbols by underscores for 64-bit.  */
+
+     /* As we have to support older gcc version, which are using underscores
+      as symbol prefix for x64, we have to check here for the user label
+      prefix defined by gcc. */
+
              
 # 107 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
              
+# 169 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
+/* Special case nameless struct/union.  */
+# 193 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
+/* MinGW-w64 has some additional C99 printf/scanf feature support.
+   So we add some helper macros to ease recognition of them.  */
 # 316 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
        
+# 382 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
+/* If _FORTIFY_SOURCE is enabled, some inline functions may use
+   __builtin_va_arg_pack().  GCC may report an error if the address
+   of such a function is used.  Set _FORTIFY_VA_ARG=0 in this case.
+   Clang doesn't, as of version 15, yet implement __builtin_va_arg_pack().  */
 # 395 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_mac.h" 3
        
+
+/* Enable workaround for ABI incompatibility on affected platforms */
 # 11 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 2 3
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h" 1 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+
+
+
+/* http://msdn.microsoft.com/en-us/library/ms175759%28v=VS.100%29.aspx */
+# 28 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h" 3
+/* Templates won't work in C, will break if secure API is not enabled, disabled */
+# 54 "C:/mingw64/x86_64-w64-mingw32/include/_mingw_secapi.h" 3
+/* https://blogs.msdn.com/b/sdl/archive/2010/02/16/vc-2010-and-memcpy.aspx?Redirected=true */
+/* fallback on default implementation if we can't know the size of the destination */
 # 12 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 2 3
+
+/* Include _cygwin.h if we're building a Cygwin application. */
+
+
+
+
+/* Target specific macro replacement for type "long".  In the Windows API,
+   the type long is always 32 bit, even if the target is 64 bit (LLP64).
+   On 64 bit Cygwin, the type long is 64 bit (LP64).  So, to get the right
+   sized definitions and declarations, all usage of type long in the Windows
+   headers have to be replaced by the below defined macro __LONG32. */
+
+
+
+
+
+
+/* C/C++ specific language defines.  */
+# 42 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* Note the extern. This is needed to work around GCC's
+limitations in handling dllimport attribute.  */
+# 156 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* Attribute `nonnull' was valid as of gcc 3.3.  We don't use GCC's
+   variadiac macro facility, because variadic macros cause syntax
+   errors with  --traditional-cpp.  */
+# 216 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/*  High byte is the major version, low byte is the minor. */
+# 227 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* Allow both 0x1400 and 0xE00 to identify UCRT */
 # 282 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/vadefs.h" 1 3
-# 9 "C:/mingw64/x86_64-w64-mingw32/include/vadefs.h" 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+
+
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 1 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+# 652 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* for backward compatibility */
 # 661 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h" 1 3
 # 662 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 2 3
@@ -36,9 +165,7 @@
 
 #pragma pack(push,_CRT_PACKING)
 # 24 "C:/mingw64/x86_64-w64-mingw32/include/vadefs.h" 3
-  
-# 24 "C:/mingw64/x86_64-w64-mingw32/include/vadefs.h" 3
- typedef __builtin_va_list __gnuc_va_list;
+  typedef __builtin_va_list __gnuc_va_list;
 
 
 
@@ -46,9 +173,45 @@
 
 
   typedef __gnuc_va_list va_list;
+# 46 "C:/mingw64/x86_64-w64-mingw32/include/vadefs.h" 3
+/* Use GCC builtins */
 # 103 "C:/mingw64/x86_64-w64-mingw32/include/vadefs.h" 3
 #pragma pack(pop)
 # 283 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 2 3
+# 319 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* We have to define _DLL for gcc based mingw version. This define is set
+   by VC, when DLL-based runtime is used. So, gcc based runtime just have
+   DLL-base runtime, therefore this define has to be set.
+   As our headers are possibly used by windows compiler having a static
+   C-runtime, we make this definition gnu compiler specific here.  */
+# 411 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* MSVC defines _NATIVE_NULLPTR_SUPPORTED when nullptr is supported. We emulate it here for GCC. */
+
+
+
+
+
+
+/* We are activating __USE_MINGW_ANSI_STDIO for various define indicators.
+ * printf ll modifier (unsupported by msvcrt.dll) is required by C99 and C++11 standards. */
+# 432 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* We are defining __USE_MINGW_ANSI_STDIO as 0 or 1 */
+# 441 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* _dowildcard is an int that controls the globbing of the command line.
+ * The MinGW32 (mingw.org) runtime calls it _CRT_glob, so we are adding
+ * a compatibility definition here:  you can use either of _CRT_glob or
+ * _dowildcard .
+ * If _dowildcard is non-zero, the command line will be globbed:  *.*
+ * will be expanded to be all files in the startup directory.
+ * In the mingw-w64 library a _dowildcard variable is defined as being
+ * 0, therefore command line globbing is DISABLED by default. To turn it
+ * on and to leave wildcard command line processing MS's globbing code,
+ * include a line in one of your source modules defining _dowildcard and
+ * setting it to -1, like so:
+ * int _dowildcard = -1;
+ */
+# 528 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* Macros for __uuidof template-based emulation */
 # 580 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
 void __attribute__((__cdecl__)) __debugbreak(void);
 extern __inline__ __attribute__((__always_inline__,__gnu_inline__)) void __attribute__((__cdecl__)) __debugbreak(void)
@@ -72,7 +235,8 @@ extern __inline__ __attribute__((__always_inline__,__gnu_inline__)) void __attri
 # 615 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
   __builtin_unreachable();
 }
-# 641 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+# 640 "C:/mingw64/x86_64-w64-mingw32/include/_mingw.h" 3
+/* mingw-w64 specific functions: */
 const char *__mingw_get_crt_info (void);
 # 11 "C:/mingw64/x86_64-w64-mingw32/include/corecrt.h" 2 3
 
@@ -204,6 +368,8 @@ __attribute__ ((__dllimport__)) FILE *__attribute__((__cdecl__)) __acrt_iob_func
   __attribute__ ((__dllimport__)) FILE *__attribute__((__cdecl__)) __iob_func(void);
 # 123 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
   __extension__ typedef long long fpos_t;
+# 157 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
+/* used with _set_output_format which is not present in ucrt */
 # 167 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
 extern
   __attribute__((__format__(__gnu_scanf__, 2,3))) __attribute__ ((__nonnull__ (2)))
@@ -290,7 +456,12 @@ extern
   int __attribute__((__cdecl__)) __stdio_common_vfprintf(unsigned long long options, FILE *file, const char *format, _locale_t locale, va_list valist);
   int __attribute__((__cdecl__)) __stdio_common_vsscanf(unsigned long long options, const char *input, size_t length, const char *format, _locale_t locale, va_list valist);
   int __attribute__((__cdecl__)) __stdio_common_vfscanf(unsigned long long options, FILE *file, const char *format, _locale_t locale, va_list valist);
-# 507 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
+# 502 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
+/*
+ * Default configuration: simply direct all calls to MSVCRT...
+ */
+
+
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wshadow"
 
@@ -355,8 +526,8 @@ extern
   int __attribute__((__cdecl__)) fflush(FILE *_File);
   int __attribute__((__cdecl__)) fgetc(FILE *_File);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fgetchar(void);
-  int __attribute__((__cdecl__)) fgetpos(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos);
-  int __attribute__((__cdecl__)) fgetpos64(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos);
+  int __attribute__((__cdecl__)) fgetpos(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos); /* 64bit only, no 32bit version */
+  int __attribute__((__cdecl__)) fgetpos64(FILE * __restrict__ _File ,fpos_t * __restrict__ _Pos); /* fgetpos already 64bit */
   char *__attribute__((__cdecl__)) fgets(char * __restrict__ _Buf,int _MaxCount,FILE * __restrict__ _File);
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fileno(FILE *_File);
 
@@ -372,12 +543,12 @@ extern
   size_t __attribute__((__cdecl__)) fread(void * __restrict__ _DstBuf,size_t _ElementSize,size_t _Count,FILE * __restrict__ _File);
   FILE *__attribute__((__cdecl__)) freopen(const char * __restrict__ _Filename,const char * __restrict__ _Mode,FILE * __restrict__ _File) ;
   int __attribute__((__cdecl__)) fsetpos(FILE *_File,const fpos_t *_Pos);
-  int __attribute__((__cdecl__)) fsetpos64(FILE *_File,const fpos_t *_Pos);
+  int __attribute__((__cdecl__)) fsetpos64(FILE *_File,const fpos_t *_Pos); /* fsetpos already 64bit */
   int __attribute__((__cdecl__)) fseek(FILE *_File,long _Offset,int _Origin);
   long __attribute__((__cdecl__)) ftell(FILE *_File);
 
-
-
+  /* Shouldn't be any fseeko32 in glibc, 32bit to 64bit casting should be fine */
+  /* int fseeko32(FILE* stream, _off_t offset, int whence);*/ /* fseeko32 redirects to fseeko64 */
   __attribute__ ((__dllimport__)) int __attribute__((__cdecl__)) _fseeki64(FILE *_File,long long _Offset,int _Origin);
   __attribute__ ((__dllimport__)) long long __attribute__((__cdecl__)) _ftelli64(FILE *_File);
 
@@ -476,54 +647,54 @@ extern
 
 
 
-                                                     __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
-                                                     __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_vswscanf (const wchar_t * __restrict__ _Str,const wchar_t * __restrict__ Format,va_list argp);
-                                                     __attribute__ ((__nonnull__ (1)))
+/* __attribute__((__format__ (gnu_wscanf, 1, 2))) */ __attribute__ ((__nonnull__ (1)))
   int __attribute__((__cdecl__)) __mingw_wscanf(const wchar_t * __restrict__ _Format,...);
-                                                     __attribute__ ((__nonnull__ (1)))
+/* __attribute__((__format__ (gnu_wscanf, 1, 0))) */ __attribute__ ((__nonnull__ (1)))
   int __attribute__((__cdecl__)) __mingw_vwscanf(const wchar_t * __restrict__ Format, va_list argp);
-                                                     __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (gnu_wscanf, 2, 3))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-                                                     __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (gnu_wscanf, 2, 0))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_vfwscanf (FILE * __restrict__ fp, const wchar_t * __restrict__ Format,va_list argp);
 
-                                                      __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-                                                      __attribute__ ((__nonnull__ (1)))
+/* __attribute__((__format__ (gnu_wprintf, 1, 2))) */ __attribute__ ((__nonnull__ (1)))
   int __attribute__((__cdecl__)) __mingw_wprintf(const wchar_t * __restrict__ _Format,...);
-                                                     __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */__attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
-                                                     __attribute__ ((__nonnull__ (1)))
+/*__attribute__((__format__ (gnu_wprintf, 1, 0))) */ __attribute__ ((__nonnull__ (1)))
   int __attribute__((__cdecl__)) __mingw_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-                                                      __attribute__ ((__nonnull__ (3)))
+/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __attribute__ ((__nonnull__ (3)))
   int __attribute__((__cdecl__)) __mingw_snwprintf (wchar_t * __restrict__ s, size_t n, const wchar_t * __restrict__ format, ...);
-                                                      __attribute__ ((__nonnull__ (3)))
+/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __attribute__ ((__nonnull__ (3)))
   int __attribute__((__cdecl__)) __mingw_vsnwprintf (wchar_t * __restrict__ , size_t, const wchar_t * __restrict__ , va_list);
-                                                      __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (gnu_wprintf, 2, 3))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
-                                                      __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (gnu_wprintf, 2, 0))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __mingw_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
 
-                                                    __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (ms_wscanf, 2, 3))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __ms_swscanf(const wchar_t * __restrict__ _Src,const wchar_t * __restrict__ _Format,...);
-                                                    __attribute__ ((__nonnull__ (1)))
+/* __attribute__((__format__ (ms_wscanf, 1, 2))) */ __attribute__ ((__nonnull__ (1)))
   int __attribute__((__cdecl__)) __ms_wscanf(const wchar_t * __restrict__ _Format,...);
-                                                    __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (ms_wscanf, 2, 3))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __ms_fwscanf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
 
-                                                     __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (ms_wprintf, 2, 3))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __ms_fwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,...);
-                                                     __attribute__ ((__nonnull__ (1)))
+/* __attribute__((__format__ (ms_wprintf, 1, 2))) */ __attribute__ ((__nonnull__ (1)))
   int __attribute__((__cdecl__)) __ms_wprintf(const wchar_t * __restrict__ _Format,...);
-                                                    __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (ms_wprintf, 2, 0))) */__attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __ms_vfwprintf(FILE * __restrict__ _File,const wchar_t * __restrict__ _Format,va_list _ArgList);
-                                                    __attribute__ ((__nonnull__ (1)))
+/*__attribute__((__format__ (ms_wprintf, 1, 0))) */ __attribute__ ((__nonnull__ (1)))
   int __attribute__((__cdecl__)) __ms_vwprintf(const wchar_t * __restrict__ _Format,va_list _ArgList);
-                                                     __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (ms_wprintf, 2, 3))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __ms_swprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ , ...);
-                                                     __attribute__ ((__nonnull__ (2)))
+/* __attribute__((__format__ (ms_wprintf, 2, 0))) */ __attribute__ ((__nonnull__ (2)))
   int __attribute__((__cdecl__)) __ms_vswprintf(wchar_t * __restrict__ , const wchar_t * __restrict__ ,va_list);
 
 
@@ -678,16 +849,32 @@ extern
   }
 # 1418 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl" 1 3
-# 12 "C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl" 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+
+
+
+# 1 "C:/mingw64/x86_64-w64-mingw32/include/vadefs.h" 1 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+# 11 "C:/mingw64/x86_64-w64-mingw32/include/swprintf.inl" 2 3
+
 static __attribute__ ((__unused__)) __inline__ __attribute__((__cdecl__))
-                                                      __attribute__ ((__nonnull__ (3)))
+/* __attribute__((__format__ (gnu_wprintf, 3, 0))) */ __attribute__ ((__nonnull__ (3)))
 int vswprintf (wchar_t *__stream, size_t __count, const wchar_t *__format, __builtin_va_list __local_argv)
 {
   return vsnwprintf( __stream, __count, __format, __local_argv );
 }
 
 static __attribute__ ((__unused__)) __inline__ __attribute__((__cdecl__))
-                                                      __attribute__ ((__nonnull__ (3)))
+/* __attribute__((__format__ (gnu_wprintf, 3, 4))) */ __attribute__ ((__nonnull__ (3)))
 int swprintf (wchar_t *__stream, size_t __count, const wchar_t *__format, ...)
 {
   int __retval;
@@ -755,11 +942,45 @@ int swprintf (wchar_t *__stream, size_t __count, const wchar_t *__format, ...)
   int __attribute__((__cdecl__)) getw(FILE *_File) ;
   int __attribute__((__cdecl__)) putw(int _Ch,FILE *_File) ;
   int __attribute__((__cdecl__)) rmtmp(void) ;
-# 1532 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
+
+
+
+
+
+/**
+ * __mingw_str_wide_utf8
+ * Converts a null terminated UCS-2 string to a multibyte (UTF-8) equivalent.
+ * Caller is supposed to free allocated buffer with __mingw_str_free().
+ * @param[in] wptr Pointer to wide string.
+ * @param[out] mbptr Pointer to multibyte string.
+ * @param[out] buflen Optional parameter for length of allocated buffer.
+ * @return Number of characters converted, 0 for failure.
+ *
+ * WideCharToMultiByte - http://msdn.microsoft.com/en-us/library/dd374130(VS.85).aspx
+ */
 int __attribute__((__cdecl__)) __mingw_str_wide_utf8 (const wchar_t * const wptr, char **mbptr, size_t * buflen);
-# 1546 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
+
+/**
+ * __mingw_str_utf8_wide
+ * Converts a null terminated UTF-8 string to a UCS-2 equivalent.
+ * Caller is supposed to free allocated buffer with __mingw_str_free().
+ * @param[out] mbptr Pointer to multibyte string.
+ * @param[in] wptr Pointer to wide string.
+ * @param[out] buflen Optional parameter for length of allocated buffer.
+ * @return Number of characters converted, 0 for failure.
+ *
+ * MultiByteToWideChar - http://msdn.microsoft.com/en-us/library/dd319072(VS.85).aspx
+ */
+
 int __attribute__((__cdecl__)) __mingw_str_utf8_wide (const char *const mbptr, wchar_t ** wptr, size_t * buflen);
-# 1555 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 3
+
+/**
+ * __mingw_str_free
+ * Frees buffer create by __mingw_str_wide_utf8 and __mingw_str_utf8_wide.
+ * @param[in] ptr memory block to free.
+ *
+ */
+
 void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 
 
@@ -795,8 +1016,20 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 #pragma pack(pop)
 
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 1 3
-# 9 "C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
+
+
+
 # 1 "C:/mingw64/x86_64-w64-mingw32/include/stdio.h" 1 3
+/**
+ * This file has no copyright assigned and is placed in the Public Domain.
+ * This file is part of the mingw-w64 runtime package.
+ * No warranty is given; refer to the file DISCLAIMER.PD within this package.
+ */
 # 10 "C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 2 3
 # 29 "C:/mingw64/x86_64-w64-mingw32/include/sec_api/stdio_s.h" 3
   __attribute__ ((__dllimport__)) errno_t __attribute__((__cdecl__)) clearerr_s(FILE *_File);
@@ -940,7 +1173,7 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
     return _Ret;
   }
 
-
+  /* There is no _vsnscanf_s_l nor _vsnscanf_s */
   static __attribute__ ((__unused__)) __inline__ __attribute__((__cdecl__)) int __attribute__((__cdecl__)) _snscanf_s_l(const char *_Src, size_t _MaxCount, const char *_Format, _locale_t _Locale, ...)
   {
     __builtin_va_list _ArgList;
@@ -960,7 +1193,7 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
     return _Ret;
   }
 
-
+  /* There is no _vsnscanf_l */
   static __attribute__ ((__unused__)) __inline__ __attribute__((__cdecl__)) int __attribute__((__cdecl__)) _snscanf_l(const char *_Src, size_t _MaxCount, const char *_Format, _locale_t _Locale, ...)
   {
     __builtin_va_list _ArgList;
@@ -1550,7 +1783,7 @@ void __attribute__((__cdecl__)) __mingw_str_free(void *ptr);
 # 2 "hello.c"
 int main()
 {
-
+    // 输出字符"Hello Github!"
     printf("Hello Github!\n");
     return 0;
 }
