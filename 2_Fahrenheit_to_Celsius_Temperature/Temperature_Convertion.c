@@ -1,6 +1,6 @@
 #include <stdio.h>
 // 精简版华氏转摄氏（15行内完成）
-#include <stdio.h>
+
 int main()
 {
     float f;
