@@ -18,7 +18,7 @@ void printHealthAdvice()
 {
     if (BMI)
     {
-        if (BMI >= 18.5 || BMI <= 24)
+        if (BMI >= 18.5 && BMI <= 24)
         {
             printf("Normal, continue to maintain\n");
         }
