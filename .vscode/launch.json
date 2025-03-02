@@ -1,0 +1,25 @@
+{
+    // 使用 IntelliSense 了解相关属性。 
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+    {
+      "name": "Debug Program",
+      "type": "cppdbg", 
+      "request": "launch",
+      
+      // 关键路径配置
+      "program": "${workspaceFolder}/3_HealthTools/bin/HealthTools.exe",
+      "cwd": "${workspaceFolder}/3_HealthTools",
+      
+      // 调试参数
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/mingw64/bin/gdb.exe",
+      
+      // 必须与 tasks.json 中的 label 完全一致
+      "preLaunchTask": "Build Program"
+    }
+  ]
+}
