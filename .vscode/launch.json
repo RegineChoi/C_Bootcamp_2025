@@ -10,8 +10,8 @@
       "request": "launch",
       
       // 关键路径配置
-      "program": "${workspaceFolder}/3_HealthTools/bin/HealthTools.exe",
-      "cwd": "${workspaceFolder}/3_HealthTools",
+      "program": "${workspaceFolder}/3_HealthTools_1/bin/HealthTools.exe",
+      "cwd": "${workspaceFolder}/3_HealthTools_1",
       
       // 调试参数
       "externalConsole": true,

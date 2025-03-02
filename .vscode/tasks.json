@@ -9,18 +9,18 @@
 		  // 编译参数
 		  "-g",
 		  // 编译所有.c文件
-		  "${workspaceFolder}/3_HealthTools/src/*.c",
+		  "${workspaceFolder}/3_HealthTools_1/src/*.c",
 		  
 		  // 头文件搜索路径（关键！）
-		  "-I${workspaceFolder}/3_HealthTools/include",
+		  "-I${workspaceFolder}/3_HealthTools_1/include",
 		  
 		  // 输出目录和文件名（自动创建目录）
 		  "-o",
-		  "${workspaceFolder}/3_HealthTools/bin/HealthTools.exe",
+		  "${workspaceFolder}/3_HealthTools_1/bin/HealthTools.exe",
 		],
 		"options": {
 		  // 工作目录设为项目根目录（避免路径混乱）
-		  "cwd": "${workspaceFolder}/3_HealthTools"
+		  "cwd": "${workspaceFolder}/3_HealthTools_1"
 		},
 		"group": {
 		  "kind": "build",
