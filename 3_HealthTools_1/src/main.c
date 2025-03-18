@@ -42,10 +42,14 @@ int main()
             float b;
             char op;
             printf("请输入算式(如 3 + 5): ");
-            scanf("%f %c %f", &a, &op, &c);
+            scanf("%f %c %f", &a, &op, &b);
             scientific_calculator(&a, &b, &op, &result);
             if (result != -1)
                 printf("结果: %.2f\n", result);
+            break;
+        case 4:
+            printf("退出游戏\n");
+            return 0;
             break;
         default:
             printf("无效选项！请重新输入！\n");
