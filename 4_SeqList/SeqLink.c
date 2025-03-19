@@ -45,6 +45,47 @@ void listElem(SeqLink *L)
         printf("L->length长度为0\n");
 }
 
+// // 顺序表插入元素
+// int insertElem(SeqLink *L, int num, ElemType e)
+// {
+//     if (num < 0 || num > 100 || (num > L->length))
+//     {
+//         printf("插入的位置错误，无法操作\n");
+//         return 0;
+//     }
+
+//     if (L->length >= MAXSIZE)
+//     {
+//         printf("顺序表已满无法插入\n");
+//         return 0;
+//     }
+//     else
+//     {
+//         for (int i = L->length; i > num; i--)
+//         {
+//             if (num == i)
+//             {
+//                 L->data[i] = e;
+//                 L->length++;
+//                 return 1;
+//             }
+//             L->data[i] = L->data[i - 1];
+//         }
+//     }
+// }
+
+// 顺序表插入元素
+int insertElem(SeqLink *L, int pos, ElemType e)
+{
+    if (pos <= L->length)
+    {
+        for (int i = L->length - 1; i >= pos - 1; i--)
+        {
+            /* code */
+        }
+        }
+}
+
 int main()
 {
     // 声明一个顺序表并初始化
