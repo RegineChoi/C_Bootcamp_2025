@@ -74,16 +74,29 @@ void listElem(SeqLink *L)
 //     }
 // }
 
-// 顺序表插入元素
+// 顺序表插入元素,pos位置为 1 ~ length(此处没有队尾插入的情况)
 int insertElem(SeqLink *L, int pos, ElemType e)
 {
+    if (L->length >= MAXSIZE)
+    {
+        printf("顺序表已满，无法插入\n");
+        return 0;
+    }
+    if (pos < 1 || pos > L->length)
+    {
+        printf("插入位置错误\n");
+        return 0;
+    }
     if (pos <= L->length)
     {
         for (int i = L->length - 1; i >= pos - 1; i--)
         {
-            /* code */
+            L->data[i + 1] = L->data[i];
         }
-        }
+        L->data[pos - 1] = e;
+        L->length++;
+        return 1;
+    }
 }
 
 int main()
@@ -93,10 +106,21 @@ int main()
     initList(&list);
     printf("初始化成功，目前长度为%d字节\n", list.length);
     printf("目前占用内存的大小为%zu字节\n", sizeof(list.data));
-    appendElem(&list, 100);
-    printf("添加成功，目前长度为%d字节\n", list.length);
+    int flag = appendElem(&list, 100);
+    if (flag)
+        printf("尾部添加元素成功\n");
+    else
+        printf("尾部添加元素失败\n");
     appendElem(&list, 101);
+    if (flag)
+        printf("尾部添加元素成功\n");
+    else
+        printf("尾部添加元素失败\n");
     appendElem(&list, 102);
+    appendElem(&list, 103);
+    appendElem(&list, 104);
+    listElem(&list);
+    insertElem(&list, 1, 80);
     listElem(&list);
     return 0;
 }
