@@ -6,16 +6,16 @@ typedef struct
 {
     ElemType data[MAXSIZE];
     int length;
-} SeqLink;
+} Seqlist;
 
-// 顺序表初始化
-void initList(SeqLink *L)
-{
-    L->length = 0;
-}
+// // 顺序表初始化
+// void initList(Seqlist *L)
+// {
+//     L->length = 0;
+// }
 
 // 顺序表-在尾部添加元素
-int appendElem(SeqLink *L, ElemType e)
+int appendElem(Seqlist *L, ElemType e)
 {
     if (L->length >= MAXSIZE)
     {
@@ -31,7 +31,7 @@ int appendElem(SeqLink *L, ElemType e)
 }
 
 // 顺序表遍历
-void listElem(SeqLink *L)
+void listElem(Seqlist *L)
 {
     if (L->length > 0)
     {
@@ -46,7 +46,7 @@ void listElem(SeqLink *L)
 }
 
 // 顺序表插入元素,pos位置为 1 ~ length(此处没有队尾插入的情况)
-int insertElem(SeqLink *L, int pos, ElemType e)
+int insertElem(Seqlist *L, int pos, ElemType e)
 {
     if (L->length >= MAXSIZE)
     {
@@ -71,7 +71,7 @@ int insertElem(SeqLink *L, int pos, ElemType e)
 }
 
 // 顺序表删除，删除的位置 1 ~ L->length
-int deleteElem(SeqLink *L, int pos, ElemType *e)
+int deleteElem(Seqlist *L, int pos, ElemType *e)
 {
     if (L->length == 0)
     {
@@ -91,10 +91,32 @@ int deleteElem(SeqLink *L, int pos, ElemType *e)
     L->length--;
     return 1;
 }
+
+int findElem(Seqlist *L, ElemType e)
+{
+    if (L->length == 0)
+    {
+        printf("该顺序表为空\n");
+        return 0;
+    }
+    for (int i = 0; i < L->length; i++)
+    {
+        if (L->data[i] == e)
+            return i + 1;
+    }
+    return 0;
+}
+
+// 顺序表 - 动态分配内存地址初始化
+Seqlist *initList(Seqlist *L)
+{
+    return L;
+}
+
 int main()
 {
     // 声明一个顺序表并初始化
-    SeqLink list;
+    Seqlist list;
     initList(&list);
     printf("初始化成功，目前长度为%d字节\n", list.length);
     printf("目前占用内存的大小为%zu字节\n", sizeof(list.data));
@@ -118,5 +140,10 @@ int main()
     else
         printf("删除元素失败\n");
     listElem(&list);
+    int find_pos = findElem(&list, 103);
+    if (find_pos)
+        printf("查找元素成功，元素位置位于%d\n", find_pos);
+    else
+        printf("查找元素失败，该表没有这个元素\n");
     return 0;
 }
