@@ -3,6 +3,12 @@
 #define MAXSIZE 100
 typedef int ElemType;
 
+// typedef struct
+// {
+//     ElemType data[MAXSIZE];
+//     int length;
+// } Seqlist;
+
 typedef struct
 {
     ElemType *data;
@@ -92,7 +98,7 @@ int deleteElem(Seqlist *L, int pos, ElemType *e)
     L->length--;
     return 1;
 }
-
+// 查找数据
 int findSeqList(Seqlist *L, ElemType *e)
 {
     if (L->length == 0)
