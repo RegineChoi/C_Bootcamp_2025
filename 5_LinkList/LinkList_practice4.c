@@ -126,8 +126,33 @@ void freeList(Node *L)
 //      return output;
 //  }
 
-// 老师教的反转链表
-Node *reverseList(Node *head)
+// // 老师教的反转链表
+// Node *reverseList(Node *head)
+// {
+//     Node *first = NULL;
+//     Node *second = head->link;
+//     Node *third;
+//     while (second != NULL)
+//     {
+//         third = second->link;
+//         second->link = first;
+//         first = second;
+//         second = third;
+//     }
+//     Node *hd = initList();
+//     hd->link = first;
+//     return hd;
+// }
+
+// // 删除链表中间节点
+// int delMiddleNode(Node *L)
+// {
+//     Node *fast = L->link;
+//     Node *slow = L;
+// }
+
+// 反转链表
+Node *reseredList(Node *head)
 {
     Node *first = NULL;
     Node *second = head->link;
@@ -139,9 +164,9 @@ Node *reverseList(Node *head)
         first = second;
         second = third;
     }
-    Node *hd = initList();
-    hd->link = first;
-    return hd;
+
+    free(head);
+    return;
 }
 
 int main()
