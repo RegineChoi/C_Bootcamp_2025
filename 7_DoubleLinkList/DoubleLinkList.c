@@ -36,20 +36,23 @@ Node *insertTail(Node *tail, ElemType e)
     p->data = e;
     p->prev = tail;
     p->next = NULL;
+
     tail->next = p;
     return p;
 }
 
-// // 头插法 作业DoubleLinkList1
-// Node *insertHead(Node *head, ElemType e)
-// {
-//     Node *p = (Node *)malloc(sizeof(Node));
-//     p->data = e;
-//     p->prev = NULL;
-//     head->next->prev = p;
-//     p->next = head->next;
+// 头插法 作业DoubleLinkList1
+Node *insertHead(Node *head, ElemType e)
+{
+    Node *p = (Node *)malloc(sizeof(Node));
+    p->data = e;
+    p->prev = head;
+    p->next = head->next;
 
-// }
+    head->next = p;
+    p->next->prev = p;
+    return head;
+}
 
 // 从头开始遍历链表
 void displayHeadList(Node *L)
