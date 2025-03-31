@@ -152,7 +152,7 @@ void freeList(Node *L)
 // }
 
 // 反转链表
-Node *reseredList(Node *head)
+Node *reverseList(Node *head)
 {
     Node *first = NULL;
     Node *second = head->link;
@@ -164,24 +164,99 @@ Node *reseredList(Node *head)
         first = second;
         second = third;
     }
-
-    free(head);
-    return;
+    head->link = first;
+    free(second);
+    return head;
 }
+
+// 删除中间节点
+int delMiddleNode(Node *head)
+{
+    Node *fast = head->link;
+    Node *slow = head;
+
+    while (fast != NULL && fast->link != NULL)
+    {
+        fast = fast->link->link;
+        slow = slow->link;
+    }
+    Node *q = slow->link;
+    slow->link = q->link;
+    free(q);
+    return 1;
+}
+
+// 链表重新排序
+void reOrderList(Node *head)
+{
+    Node *fast = head->link;
+    Node *slow = head;
+    while (fast != NULL && fast->link != NULL)
+    {
+        fast = fast->link->link;
+        slow = slow->link;
+    }
+
+    Node *first = NULL;
+    Node *second = slow->link;
+    slow->link = NULL;
+    Node *third = NULL;
+
+    while (second != NULL)
+    {
+        third = second->link;
+        second->link = first;
+        first = second;
+        second = third;
+    }
+
+    Node *p1 = head->link;
+    Node *q1 = first;
+    Node *p2, *q2;
+    while (p1 != NULL && q1 != NULL)
+    {
+        p2 = p1->link;
+        q2 = q1->link;
+
+        p1->link = q1;
+        q1->link = p2;
+
+        p1 = p2;
+        q1 = q2;
+    }
+}
+
+// // 反转链表 使用头插法进行倒序
+// Node *reverseList(Node *head)
+// {
+//     Node *reverse_head = initList();
+//     Node *p = head->link;
+//     Node *q = NULL;
+//     while (p != NULL)
+//     {
+//         insertHead(reverse_head, p->data); // 向reverseList头插法插入数据
+//         q = p;
+//         p = p->link;
+//         free(q);
+//     }
+//     free(head);
+//     return reverse_head;
+// }
 
 int main()
 {
     Node *list = initList();
-    Node *tail = insertTail(getTail(list), 1);
+    Node *tail = getTail(list);
+    tail = insertTail(tail, 1);
     tail = insertTail(tail, 2);
     tail = insertTail(tail, 3);
     tail = insertTail(tail, 4);
     tail = insertTail(tail, 5);
     tail = insertTail(tail, 6);
     displayList(list);
-    reverseList(list);
+    // reverseList(list);
+    // displayList(list);
+    reOrderList(list);
     displayList(list);
-    // Node *listRev = reversalList(list);
-    // displayList(listRev);
     return 0;
 }
