@@ -42,16 +42,20 @@ Node *insertTail(Node *tail, ElemType e)
 }
 
 // 头插法 作业DoubleLinkList1
-Node *insertHead(Node *head, ElemType e)
+int insertHead(Node *head, ElemType e)
 {
     Node *p = (Node *)malloc(sizeof(Node));
     p->data = e;
     p->prev = head;
     p->next = head->next;
 
+    if (head->next != NULL)
+    {
+        // 判断队列是否有节点，如果有节点，第一个节点的prev设置为p
+        head->next->prev = p;
+    }
     head->next = p;
-    p->next->prev = p;
-    return head;
+    return 1;
 }
 
 // 从头开始遍历链表
@@ -78,20 +82,56 @@ void displayTailList(Node *L)
     printf("\n");
 }
 
-// // 增加指定位置的节点
-// void insertNode(Node *L, int pos, ElemType e)
-// {
-//     Node *p = L;
-//     Node *q = (Node *)malloc(sizeof(Node));
-//     q->data = e;
-//     int i = 0;
-//     for (i = 0; i < pos - 1; i++)
-//     {
-//         p = p->next;
-//     }
-//     q->next = p->next;
-//     p->next = q;
-// }
+// 在指定位置插入节点
+int insertNode(Node *head, int pos, ElemType e)
+{
+    Node *p = head;
+    for (int i = 0; i < pos - 1; i++)
+    {
+        if (p != NULL)
+            p = p->next;
+        else
+            return 0;
+    }
+    Node *temp = (Node *)malloc(sizeof(Node));
+    temp->data = e;
+    temp->prev = p;
+    temp->next = p->next;
+
+    if (p->next != NULL)
+    {
+        p->next->prev = temp;
+    }
+    p->next = temp;
+    return 1;
+}
+
+// 在指定位置删除节点
+int deleteNode(Node *head, int pos)
+{
+    Node *p = head;
+    Node *q = NULL;
+    for (int i = 0; i < pos - 1; i++)
+    {
+        if (p != NULL)
+            p = p->next;
+        else
+            return 0;
+    }
+    if (p->next != NULL)
+    {
+        q = p->next;
+    }
+    else
+    {
+        return 0;
+    }
+    p->next = q->next;
+    if (q->next != NULL)
+        q->next->prev = p;
+    free(q);
+    return 1;
+}
 
 // // 删除指定位置的节点
 // void deleteNode(Node *L, int pos)
@@ -137,17 +177,21 @@ void displayTailList(Node *L)
 int main()
 {
     Node *list = initList();
-    // Node *tail = getTail(list);
-    // tail = insertTail(tail, 10);
-    // tail = insertTail(tail, 20);
-    // tail = insertTail(tail, 30);
+    // displayHeadList(list);
+    Node *tail = getTail(list);
+    tail = insertTail(tail, 10);
+    tail = insertTail(tail, 20);
+    tail = insertTail(tail, 30);
 
-    insertHead(list, 10);
-    insertHead(list, 20);
-    insertHead(list, 30);
+    // insertHead(list, 10);
+    // insertHead(list, 20);
+    // insertHead(list, 30);
+    insertNode(list, 2, 40);
+    displayHeadList(list);
+    deleteNode(list, 5);
 
     displayHeadList(list);
-    displayTailList(list);
+    // displayTailList(list);
 
     return 0;
 }
