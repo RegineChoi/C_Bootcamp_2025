@@ -77,18 +77,17 @@ int getTop(Stack *s, ElemType *e)
 
 int main()
 {
-    Stack s;
-    initStack(&s);
-    push(&s, 10);
-    push(&s, 20);
-    push(&s, 30);
+    Stack *s = initStack();
+    push(s, 10);
+    push(s, 20);
+    push(s, 30);
     ElemType output = 0;
-    pop(&s, &output);
+    pop(s, &output);
     printf("取出的数为%d\n", output);
-    pop(&s, &output);
+    pop(s, &output);
     printf("取出的数为%d\n", output);
-    getTop(&s, &output);
+    getTop(s, &output);
     printf("栈顶元素为%d\n", output);
-    getTop(&s, &output);
+    getTop(s, &output);
     printf("栈顶元素为%d\n", output);
 }
