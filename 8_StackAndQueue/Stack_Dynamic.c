@@ -6,14 +6,18 @@ typedef int ElemType;
 // 栈的基本操作有进栈push和出栈pop
 typedef struct
 {
-    ElemType data[MAXSIZE];
+    ElemType *data;
     int top;
 } Stack;
 
 // 初始化栈
-void initStack(Stack *s)
+// 栈的顺序结构初始化 - 动态内存分配
+Stack *initStack()
 {
+    Stack *s = (Stack *)malloc(sizeof(Stack));
+    s->data = (ElemType *)malloc(sizeof(ElemType) * MAXSIZE);
     s->top = -1;
+    return s;
 }
 
 // 判断栈是否为空
