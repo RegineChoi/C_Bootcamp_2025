@@ -4,16 +4,19 @@
 typedef int Elemtype;
 typedef struct
 {
-    Elemtype data[MAXSIZE];
+    Elemtype *data;
     int front;
     int rear;
 } Queue;
 
 // 初始化队列
-void initQueue(Queue *q)
+Queue *initQueue()
 {
+    Queue *q = (Queue *)malloc(sizeof(Queue));
+    q->data = (Elemtype *)malloc(sizeof(Elemtype) * MAXSIZE);
     q->front = 0;
     q->rear = 0;
+    return q;
 }
 
 // 判断队列是否为空
@@ -90,17 +93,16 @@ int getHead(Queue *q, Elemtype *e)
 
 int main()
 {
-    Queue q;
-    initQueue(&q);
-    inQueue(&q, 10);
-    inQueue(&q, 20);
-    inQueue(&q, 30);
+    Queue *q = initQueue();
+    inQueue(q, 10);
+    inQueue(q, 20);
+    inQueue(q, 30);
     Elemtype output = 0;
-    getHead(&q, &output);
+    getHead(q, &output);
     printf("\n%d\n", output);
-    outQueue(&q);
-    outQueue(&q);
-    getHead(&q, &output);
+    outQueue(q);
+    outQueue(q);
+    getHead(q, &output);
     printf("\n%d\n", output);
     return 0;
 }
