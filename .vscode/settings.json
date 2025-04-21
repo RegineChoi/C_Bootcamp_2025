@@ -4,6 +4,7 @@
         "bmi.h": "c",
         "stdio.h": "c",
         "temperature.h": "c",
-        "menu.h": "c"
+        "menu.h": "c",
+        "stdbool.h": "c"
     }
 }
