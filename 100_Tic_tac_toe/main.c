@@ -4,7 +4,7 @@
 #include <stdlib.h>  //随机数需要
 #include <time.h>    //随机数的种子需要（当前电脑时间的时间戳）
 
-#define SIZE 3
+#define SIZE 5
 
 #define HUMAN 'X'
 #define COMPUTER 'O'
