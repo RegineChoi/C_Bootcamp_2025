@@ -3,11 +3,23 @@
 #include <ctype.h>   //判断字符类型
 #include <stdlib.h>  //随机数需要
 #include <time.h>    //随机数的种子需要（当前电脑时间的时间戳）
+#include <Windows.h> // Windows下设置颜色
 
-#define SIZE 5
+#define SIZE 3
 
 #define HUMAN 'X'
 #define COMPUTER 'O'
+
+// 设置玩家下棋和电脑下棋的颜色
+void set_color(int color)
+{
+    static HANDLE hConsole = NULL;
+    if (!hConsole)
+    {
+        hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    }
+    SetConsoleTextAttribute(hConsole, color);
+}
 
 // 棋盘初始化
 void init_board(char board[SIZE][SIZE])
@@ -29,6 +41,11 @@ void init_board(char board[SIZE][SIZE])
 // // 棋盘显示
 void print_board(char board[SIZE][SIZE])
 {
+    // 设置三种颜色：棋盘颜色、玩家的棋子颜色、电脑的棋子颜色
+    const int DEFAULT_COLOR = 7;   // 灰白色
+    const int HUMAN_COLOR = 12;    // 红色
+    const int COMPUTER_COLOR = 10; // 绿色
+
     int i = 0;
     int j = 0;
     printf("   ");
@@ -44,7 +61,19 @@ void print_board(char board[SIZE][SIZE])
         printf("%d  ", i + 1);
         for (j = 0; j < SIZE; j++)
         {
+            if (board[i][j] == HUMAN)
+            {
+                set_color(HUMAN_COLOR);
+            }
+            else if (board[i][j] == COMPUTER)
+            {
+                set_color(COMPUTER_COLOR);
+            }
+            else
+                set_color(DEFAULT_COLOR);
+
             printf(" %c ", board[i][j]);
+            set_color(DEFAULT_COLOR);
             if (j < SIZE - 1)
                 printf("|");
         }
@@ -88,6 +117,12 @@ void ai_move(char board[SIZE][SIZE], int *row, int *col)
 {
     do
     {
+        if (SIZE % 2 = 1 && board[SIZE / 2][SIZE / 2] == ' ')
+        {
+            *row = SIZE / 2;
+            *col = SIZE / 2;
+            return;
+        }
         *row = rand() % SIZE;
         *col = rand() % SIZE;
     } while (board[*row][*col] != ' ');
@@ -232,7 +267,6 @@ int main()
         }
         current_player = (current_player == HUMAN) ? COMPUTER : HUMAN;
     }
-
     system("pause");
     return 0;
 }

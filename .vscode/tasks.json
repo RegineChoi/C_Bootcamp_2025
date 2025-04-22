@@ -10,18 +10,18 @@
 		  "-g",
 		  // 编译所有.c文件 编译工作空间下所有的.c文件"${workspaceFolder}/*.c"
 		  // "${workspaceFolder}/0_Practice/2_Tic_tac_toe/guess_num_DS.c",
-		"${file}",
+		"${workspaceFolder}/100_Tic_tac_toe/src/*.c",
 		  
 		  // 头文件搜索路径（关键！） 头文件所在的目录
-		  "-I${workspaceFolder}/0_Practice/2_Tic_tac_toe/include",
+		  "-I${workspaceFolder}/100_Tic_tac_toe/include",
 		  
 		  // 输出目录和文件名（自动创建目录） 将输出的.exe文件放到对应的位置
 		  "-o",
-		  "${workspaceFolder}/0_Practice/2_Tic_tac_toe/output/2_Tic_tac_toe.exe",
+		  "${workspaceFolder}/100_Tic_tac_toe/output/100_Tic_tac_toe.exe",
 		],
 		"options": {
 		  // 工作目录设为项目根目录（避免路径混乱）
-		  "cwd": "${workspaceFolder}/0_Practice/2_Tic_tac_toe/"
+		  "cwd": "${workspaceFolder}/100_Tic_tac_toe/"
 		},
 		"group": {
 		  "kind": "build",

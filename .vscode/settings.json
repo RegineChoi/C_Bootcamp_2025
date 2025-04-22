@@ -1,10 +1,14 @@
 {
-    "files.associations": {
-        "stdlib.h": "c",
-        "bmi.h": "c",
-        "stdio.h": "c",
-        "temperature.h": "c",
-        "menu.h": "c",
-        "stdbool.h": "c"
-    }
+  "files.associations": {
+    "stdlib.h": "c",
+    "bmi.h": "c",
+    "stdio.h": "c",
+    "temperature.h": "c",
+    "menu.h": "c",
+    "stdbool.h": "c",
+    "global_config.h": "c",
+    "board.h": "c",
+    "ai.h": "c",
+    "player.h": "c"
+  }
 }
