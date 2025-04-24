@@ -30,13 +30,35 @@ int main()
         char cmd_input;
         if (scanf("%c", &cmd_input) == 1)
         {
+
             if (cmd_input == 'S' || cmd_input == 's')
             {
                 GameSave save = {.version = 1,
                                  .current_player = current_player};
-                memcpy(save.board, board, sizeof(board));
+                memcpy(save.board, board, sizeof(board)); // 复制棋盘状态
+                if (save_game(&save))
+                {
+                    printf("存档成功！\n");
+                }
+                else
+                    printf("存档失败！\n");
+            }
+
+            else if (cmd_input == 'L' || cmd_input == 'l')
+            {
+                GameSave save;
+                if (load_game(&save))
+                {
+                    memcpy(board, save.board, sizeof(board));
+                    current_player = save.current_player;
+                    printf("读档成功\n");
+                    print_board(board);
+                }
+                else
+                    printf("读档失败\n");
             }
         }
+
         if (current_player == HUMAN)
         {
             // 玩家下棋

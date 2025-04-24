@@ -1,7 +1,6 @@
 #pragma once
 #include "board.h"
-
-#define SAVE_FILE "Tictactoe.sav"
+#define SAVE_FILE "Tictactoe.txt"
 
 typedef struct
 {
