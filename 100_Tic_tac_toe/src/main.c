@@ -1,8 +1,8 @@
-#pragma once
 #include "../include/global_config.h"
 #include "../include/ai.h"
 #include "../include/board.h"
 #include "../include/player.h"
+#include "../include/save.h"
 #include <stdio.h>
 #include <stdbool.h> //布尔函数
 #include <ctype.h>   //判断字符类型
@@ -21,6 +21,22 @@ int main()
     while (1)
     {
         print_board(board);
+
+        // 新增存档菜单
+        printf("输入操作：\n"
+               "S - 保存游戏\n"
+               "L - 读取存档\n"
+               "其他 - 继续游戏\n");
+        char cmd_input;
+        if (scanf("%c", &cmd_input) == 1)
+        {
+            if (cmd_input == 'S' || cmd_input == 's')
+            {
+                GameSave save = {.version = 1,
+                                 .current_player = current_player};
+                memcpy(save.board, board, sizeof(board));
+            }
+        }
         if (current_player == HUMAN)
         {
             // 玩家下棋

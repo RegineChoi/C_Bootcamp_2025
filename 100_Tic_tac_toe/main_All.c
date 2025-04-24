@@ -117,7 +117,7 @@ void ai_move(char board[SIZE][SIZE], int *row, int *col)
 {
     do
     {
-        if (SIZE % 2 = 1 && board[SIZE / 2][SIZE / 2] == ' ')
+        if (SIZE % 2 == 1 && board[SIZE / 2][SIZE / 2] == ' ')
         {
             *row = SIZE / 2;
             *col = SIZE / 2;
