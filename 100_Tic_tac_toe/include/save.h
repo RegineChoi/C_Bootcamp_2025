@@ -1,10 +1,11 @@
 #pragma once
 #include "board.h"
-#define SAVE_FILE "Tictactoe.txt"
+#define SAVE_FILE "Tictactoe.sav"
 
 typedef struct
 {
     int version;
+    int board_size;
     char board[BOARD_SIZE][BOARD_SIZE];
     char current_player;
 } GameSave;
@@ -13,4 +14,4 @@ typedef struct
 int save_game(const GameSave *save);
 
 // 加载游戏
-int load_game(GameSave *save);
+int load_game(GameSave *load);

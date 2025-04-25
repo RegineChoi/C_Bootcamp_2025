@@ -33,8 +33,10 @@ int main()
 
             if (cmd_input == 'S' || cmd_input == 's')
             {
-                GameSave save = {.version = 1,
-                                 .current_player = current_player};
+                GameSave save = {
+                    .version = 1,
+                    .board_size = BOARD_SIZE,
+                    .current_player = current_player};
                 memcpy(save.board, board, sizeof(board)); // 复制棋盘状态
                 if (save_game(&save))
                 {
@@ -46,11 +48,11 @@ int main()
 
             else if (cmd_input == 'L' || cmd_input == 'l')
             {
-                GameSave save;
-                if (load_game(&save))
+                GameSave load;
+                if (load_game(&load))
                 {
-                    memcpy(board, save.board, sizeof(board));
-                    current_player = save.current_player;
+                    memcpy(board, load.board, sizeof(board));
+                    current_player = load.current_player;
                     printf("读档成功\n");
                     print_board(board);
                 }
