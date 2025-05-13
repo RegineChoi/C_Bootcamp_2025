@@ -207,9 +207,9 @@ int load_board(char (*board)[BOARD_SIZE])
     }
 
     size_t read = fread(board, sizeof(char), BOARD_SIZE * BOARD_SIZE, fp);
-    fclose(fp) ；
+    fclose(fp);
 
-        if (read != BOARD_SIZE * BOARD_SIZE)
+    if (read != BOARD_SIZE * BOARD_SIZE)
     {
         print_error(ERR_FILE_CORRUPTED, "读取棋盘数据\n");
         fclose(fp);
