@@ -10,8 +10,8 @@
       "request": "launch",
       
       // 关键路径配置 对应的是tasks.json下面的 "-o","${workspaceFolder}/3_HealthTools_1/bin/HealthTools.exe",是一样的
-      "program": "${workspaceFolder}/100_Tic_tac_toe/output/100_Tic_tac_toe.exe",
-      "cwd": "${workspaceFolder}/100_Tic_tac_toe",
+      "program": "${workspaceFolder}/102_Tic_tac_toe_Simple/output/102_Tic_tac_toe.exe",
+      "cwd": "${workspaceFolder}/102_Tic_tac_toe_Simple",
       
       // 调试参数
       "externalConsole": true,
