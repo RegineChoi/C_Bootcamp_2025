@@ -44,5 +44,5 @@ bool get_menu_input(int *choice)
             return false;
     }
 
-    retur(sscanf(buffer, "%d", choice) == 1);
+    return (sscanf(buffer, "%d", choice) == 1);
 }

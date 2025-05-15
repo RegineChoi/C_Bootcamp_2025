@@ -2,6 +2,7 @@
 #include "../include/error.h"
 #include <stdio.h>
 #include <time.h>
+#include <string.h>
 
 // 初始化棋盘
 void init_board(char (*board)[BOARD_SIZE])

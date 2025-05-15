@@ -2,6 +2,7 @@
 #define BOARD_SIZE 3
 #define MAX_HISTORY 10
 #include <stdbool.h>
+#include <time.h>
 
 typedef enum
 {

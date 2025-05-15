@@ -1,6 +1,7 @@
 #include "../include/game.h"
 #include "../include/input.h"
 #include "../include/error.h"
+#include <stdio.h>
 
 void show_save_menu(char (*board)[BOARD_SIZE], int current_player)
 {
@@ -25,6 +26,6 @@ void show_save_menu(char (*board)[BOARD_SIZE], int current_player)
     }
     else
     {
-        print_error(ERR_INVALID_INPUT,"存档菜单管理");
+        print_error(ERR_INVALID_INPUT, "存档菜单管理");
     }
 }
